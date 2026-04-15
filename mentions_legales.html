@@ -138,6 +138,7 @@ footer {
   <div class="tabs">
     <button class="tab active" onclick="showTab('mentions')">MENTIONS LÉGALES</button>
     <button class="tab" onclick="showTab('confidentialite')">POLITIQUE DE CONFIDENTIALITÉ</button>
+    <a href="politique_rgpd.html" style="font-size:10px;letter-spacing:0.25em;color:#C9A84C;padding:18px 20px;white-space:nowrap;text-decoration:none;border-bottom:2px solid #C9A84C;">RGPD COMPLÈTE ↗</a>
     <button class="tab" onclick="showTab('cookies')">GESTION DES COOKIES</button>
   </div>
 </div>
@@ -228,13 +229,34 @@ footer {
 
     <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
 
-    <h3>SOUS-TRAITANTS</h3>
-    <p>Nous faisons appel aux sous-traitants suivants pour le traitement de vos données :</p>
-    <ul>
-      <li><strong>Formspree, Inc.</strong> — traitement du formulaire de contact (États-Unis — certifié conforme RGPD)</li>
-      <li><strong>GitHub, Inc.</strong> — hébergement du site (États-Unis — certifié conforme RGPD)</li>
-    </ul>
-    <p>Ces prestataires agissent en tant que sous-traitants et s'engagent à respecter la confidentialité de vos données.</p>
+    <h3>SOUS-TRAITANTS & TRANSFERTS HORS UE</h3>
+    <p>Conformément à l'article 13 du RGPD, nous vous informons que vos données personnelles sont transmises aux sous-traitants suivants lors de l'utilisation du formulaire de contact :</p>
+
+    <table>
+      <tr><th>SOUS-TRAITANT</th><th>RÔLE</th><th>DONNÉES TRANSMISES</th><th>PAYS</th><th>GARANTIES</th></tr>
+      <tr>
+        <td><strong>Formspree, Inc.</strong></td>
+        <td>Traitement et acheminement des messages du formulaire de contact vers l'adresse email du responsable de traitement</td>
+        <td>Nom, email, téléphone, service souhaité, message</td>
+        <td>États-Unis 🇺🇸</td>
+        <td>Clauses contractuelles types UE (CCT) — <a href="https://formspree.io/legal/privacy-policy" target="_blank">politique de confidentialité</a></td>
+      </tr>
+      <tr>
+        <td><strong>GitHub, Inc.</strong></td>
+        <td>Hébergement des fichiers du site web (pages statiques)</td>
+        <td>Adresse IP des visiteurs (logs serveur)</td>
+        <td>États-Unis 🇺🇸</td>
+        <td>Clauses contractuelles types UE (CCT) — <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">politique de confidentialité</a></td>
+      </tr>
+    </table>
+
+    <div class="info-box">
+      <p>⚠️ <strong>Transfert hors Union Européenne :</strong> Ces transferts vers les États-Unis sont encadrés par des <strong>Clauses Contractuelles Types (CCT)</strong> approuvées par la Commission européenne, conformément à l'article 46 du RGPD. Ils offrent un niveau de protection adéquat de vos données personnelles.</p>
+    </div>
+
+    <p>Formspree agit en qualité de <strong>sous-traitant</strong> au sens de l'article 28 du RGPD. Un accord de traitement des données (DPA — Data Processing Agreement) encadre cette relation. Vos données ne sont utilisées par Formspree qu'aux fins d'acheminement et ne sont pas revendues ni exploitées commercialement.</p>
+
+    <p>Pour toute question relative au traitement de vos données par ces sous-traitants, vous pouvez exercer vos droits directement auprès d'eux via leurs politiques de confidentialité respectives, ou contacter Apogée & Co à <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a>.</p>
 
     <h3>CONSENTEMENT</h3>
     <p>En soumettant le formulaire de contact, vous acceptez que vos données soient traitées conformément à cette politique. Vous pouvez retirer votre consentement à tout moment en nous contactant par email.</p>
@@ -256,22 +278,40 @@ footer {
     <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, smartphone) lors de votre navigation sur notre site. Conformément à la directive européenne ePrivacy et aux recommandations de la CNIL, nous vous informons de l'utilisation des cookies sur ce site.</p>
 
     <h3>COOKIES UTILISÉS SUR CE SITE</h3>
+    <p>Les cookies sont classés en <strong>3 catégories</strong> conformément aux recommandations de la CNIL :</p>
+
+    <h3>CATÉGORIE 1 — ESSENTIELS (toujours actifs)</h3>
     <table>
-      <tr><th>NOM</th><th>TYPE</th><th>FINALITÉ</th><th>DURÉE</th></tr>
-      <tr><td><strong>cookie_consent</strong></td><td>Fonctionnel (essentiel)</td><td>Mémorise votre choix de consentement aux cookies</td><td>12 mois</td></tr>
-      <tr><td><strong>Google Fonts</strong></td><td>Technique (essentiel)</td><td>Chargement des polices typographiques du site</td><td>Session</td></tr>
+      <tr><th>NOM</th><th>FINALITÉ</th><th>DURÉE</th><th>TIERS</th></tr>
+      <tr><td><strong>cookie_consent_v2</strong></td><td>Mémorise vos préférences de consentement (catégorie, date, méthode)</td><td>12 mois</td><td>Non — stocké localement</td></tr>
+      <tr><td><strong>Google Fonts</strong></td><td>Chargement des polices du site (requête vers serveurs Google)</td><td>Session</td><td>Google LLC (USA)</td></tr>
     </table>
 
-    <p>Ce site n'utilise <strong>aucun cookie de traçage ou de publicité</strong>. Aucune donnée de navigation n'est transmise à des tiers à des fins commerciales.</p>
+    <h3>CATÉGORIE 2 — ANALYTICS (sur consentement)</h3>
+    <table>
+      <tr><th>NOM</th><th>FINALITÉ</th><th>DURÉE</th><th>TIERS</th></tr>
+      <tr><td><em>Non utilisés actuellement</em></td><td>Mesure d'audience anonymisée</td><td>—</td><td>—</td></tr>
+    </table>
+
+    <h3>CATÉGORIE 3 — MARKETING (sur consentement)</h3>
+    <table>
+      <tr><th>NOM</th><th>FINALITÉ</th><th>DURÉE</th><th>TIERS</th></tr>
+      <tr><td><em>Non utilisés actuellement</em></td><td>Publicité ciblée, réseaux sociaux</td><td>—</td><td>—</td></tr>
+    </table>
+
+    <p>Ce site n'utilise <strong>aucun cookie de traçage ou de publicité</strong> à ce jour. Cette liste sera mise à jour si de nouveaux cookies venaient à être déposés.</p>
 
     <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
 
-    <h3>VOS CHOIX</h3>
+    <h3>VOS CHOIX & PREUVE DE CONSENTEMENT</h3>
+    <p>Lors de votre première visite, un bandeau vous propose de :</p>
     <ul>
-      <li><strong>Accepter</strong> — vous autorisez le dépôt de tous les cookies décrits ci-dessus</li>
-      <li><strong>Refuser</strong> — seuls les cookies strictement nécessaires au fonctionnement du site sont déposés</li>
-      <li><strong>Modifier</strong> — vous pouvez modifier votre choix à tout moment ci-dessous</li>
+      <li><strong>Tout accepter</strong> — autorise les cookies essentiels, analytics et marketing</li>
+      <li><strong>Tout refuser</strong> — seuls les cookies strictement nécessaires sont déposés</li>
+      <li><strong>Personnaliser</strong> — choisir catégorie par catégorie (essentiels / analytics / marketing)</li>
     </ul>
+    <p>Votre choix est enregistré dans un objet structuré contenant : la <strong>date et heure exacte</strong> du consentement, la <strong>méthode</strong> utilisée (tout accepter / tout refuser / personnalisé), les <strong>catégories</strong> acceptées ou refusées, et la <strong>version</strong> de la politique en vigueur.</p>
+    <p>Ce consentement est conservé <strong>12 mois</strong>, conformément aux recommandations de la CNIL. À l'expiration, le bandeau s'affiche à nouveau.</p>
 
     <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;">
       <button onclick="acceptCookies()" style="font-size:10px;letter-spacing:0.25em;color:#0e1629;background:#C9A84C;padding:14px 28px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">TOUT ACCEPTER</button>
