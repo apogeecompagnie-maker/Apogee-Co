@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de protection des données personnelles — Apogée & Co</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0e1629; --navy-mid:#1a2744; --gold:#C9A84C;
+  --gold-light:#e8d5a3; --blue-gray:#8a9ab8; --text:#d4c9b0;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--text);line-height:1.8;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;
+  justify-content:space-between;padding:0 5vw;height:70px;
+  background:rgba(14,22,41,0.97);border-bottom:1px solid rgba(201,168,76,0.2);
+  backdrop-filter:blur(8px);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo img{height:38px;width:38px;}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.2em;color:var(--gold);}
+.nav-brand span{display:block;font-size:8px;font-family:'Montserrat',sans-serif;
+  letter-spacing:0.3em;color:var(--blue-gray);font-weight:300;margin-top:2px;}
+.nav-back{font-size:10px;letter-spacing:0.22em;color:var(--blue-gray);text-decoration:none;
+  border:1px solid rgba(201,168,76,0.3);padding:8px 16px;transition:all 0.3s;}
+.nav-back:hover{color:var(--gold);border-color:var(--gold);}
+
+.hero{padding:120px 5vw 60px;text-align:center;
+  background:radial-gradient(ellipse 70% 50% at 50% 30%,rgba(201,168,76,0.06) 0%,transparent 70%);
+  border-bottom:1px solid rgba(201,168,76,0.1);}
+.hero .badge{display:inline-block;font-size:9px;letter-spacing:0.4em;color:var(--gold);
+  border:1px solid rgba(201,168,76,0.3);padding:6px 16px;margin-bottom:20px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);
+  font-weight:300;color:var(--gold-light);letter-spacing:0.05em;margin-bottom:12px;}
+.hero .meta{font-size:11px;color:var(--blue-gray);letter-spacing:0.2em;margin-top:10px;}
+.hero .dpo{margin-top:18px;font-size:12px;color:var(--blue-gray);}
+.hero .dpo strong{color:var(--gold-light);}
+
+/* SOMMAIRE */
+.toc{max-width:860px;margin:40px auto;padding:0 5vw;}
+.toc-box{background:var(--navy-mid);border:1px solid rgba(201,168,76,0.2);padding:28px 32px;}
+.toc-title{font-size:10px;letter-spacing:0.35em;color:var(--gold);margin-bottom:18px;font-weight:600;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;}
+.toc-item{font-size:12px;font-weight:300;color:var(--blue-gray);text-decoration:none;
+  display:flex;align-items:center;gap:8px;padding:6px 0;transition:color 0.2s;}
+.toc-item:hover{color:var(--gold);}
+.toc-item::before{content:'';width:4px;height:4px;background:var(--gold);
+  border-radius:50%;flex-shrink:0;opacity:0.6;}
+
+/* CONTENU */
+.content{max-width:860px;margin:0 auto;padding:40px 5vw 100px;}
+.art{margin-bottom:56px;padding-bottom:40px;border-bottom:1px solid rgba(201,168,76,0.1);}
+.art:last-child{border-bottom:none;}
+.art-num{font-size:9px;letter-spacing:0.4em;color:var(--gold);margin-bottom:8px;font-weight:600;}
+.art h2{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,32px);
+  font-weight:300;color:var(--gold-light);letter-spacing:0.05em;margin-bottom:24px;}
+h3{font-size:10px;letter-spacing:0.28em;color:var(--gold);margin:28px 0 12px;font-weight:600;}
+p{font-size:13.5px;font-weight:300;color:var(--blue-gray);line-height:1.95;margin-bottom:14px;}
+ul,ol{margin:0 0 16px 0;display:flex;flex-direction:column;gap:8px;list-style:none;}
+ul li,ol li{font-size:13.5px;font-weight:300;color:var(--blue-gray);line-height:1.8;
+  display:flex;gap:10px;align-items:flex-start;}
+ul li::before{content:'◆';color:var(--gold);font-size:7px;margin-top:6px;flex-shrink:0;opacity:0.7;}
+ol{counter-reset:ol-counter;}
+ol li{counter-increment:ol-counter;}
+ol li::before{content:counter(ol-counter)'.';color:var(--gold);font-size:11px;
+  font-weight:600;flex-shrink:0;min-width:18px;margin-top:2px;}
+strong{color:var(--gold-light);font-weight:500;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{text-decoration:underline;}
+em{font-style:italic;color:var(--text);}
+
+/* BOÎTES */
+.box{padding:18px 22px;margin:20px 0;border-radius:1px;}
+.box-gold{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.25);}
+.box-warn{background:rgba(226,75,74,0.06);border:1px solid rgba(226,75,74,0.25);}
+.box-info{background:rgba(55,138,221,0.06);border:1px solid rgba(55,138,221,0.2);}
+.box-label{font-size:8px;letter-spacing:0.35em;font-weight:600;margin-bottom:8px;}
+.box-gold .box-label{color:var(--gold);}
+.box-warn .box-label{color:#e24b4a;}
+.box-info .box-label{color:#378add;}
+.box p{margin-bottom:0;font-size:13px;}
+
+/* TABLEAU */
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:12.5px;}
+th{font-size:8.5px;letter-spacing:0.25em;color:var(--gold);padding:11px 14px;
+  text-align:left;border-bottom:1px solid rgba(201,168,76,0.3);font-weight:600;background:rgba(201,168,76,0.04);}
+td{padding:11px 14px;color:var(--blue-gray);font-weight:300;
+  border-bottom:1px solid rgba(201,168,76,0.07);vertical-align:top;line-height:1.7;}
+tr:hover td{background:rgba(201,168,76,0.02);}
+
+/* DROITS */
+.droits-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0;}
+.droit-card{padding:16px 18px;background:var(--navy-mid);border:1px solid rgba(201,168,76,0.15);}
+.droit-card .droit-title{font-size:9px;letter-spacing:0.25em;color:var(--gold);margin-bottom:6px;font-weight:600;}
+.droit-card .droit-art{font-size:8px;color:var(--blue-gray);opacity:0.7;margin-bottom:8px;}
+.droit-card p{font-size:11.5px;margin-bottom:0;}
+
+/* SIGNATURE */
+.signature{margin-top:50px;padding:28px 32px;background:var(--navy-mid);
+  border:1px solid rgba(201,168,76,0.2);text-align:center;}
+.sig-logo{width:60px;height:60px;margin:0 auto 14px;}
+.sig-name{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);letter-spacing:0.2em;}
+.sig-sub{font-size:9px;color:var(--blue-gray);letter-spacing:0.3em;margin-top:4px;}
+.sig-date{font-size:11px;color:var(--blue-gray);margin-top:14px;}
+
+footer{background:#080e1a;padding:28px 5vw;border-top:1px solid rgba(201,168,76,0.1);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:0.2em;color:var(--gold);}
+.footer-copy{font-size:10px;letter-spacing:0.12em;color:var(--blue-gray);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:10px;letter-spacing:0.18em;color:var(--blue-gray);text-decoration:none;}
+.footer-links a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgdmlld0JveD0iMCAwIDY4MCA2OTAiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8dGl0bGUgc3R5bGU9ImZpbGw6cmdiKDAsIDAsIDApO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byI+TG9nbyBBcG9nw6llICZhbXA7IENvIFByZXN0aWdlIOKAlCB2ZXJzaW9uIGZ1c2lvbm7DqWU8L3RpdGxlPgogIDxkZXNjIHN0eWxlPSJmaWxsOnJnYigwLCAwLCAwKTtzdHJva2U6bm9uZTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iPkxvZ28gY2lyY3VsYWlyZSBibGV1IG1hcmluZSBhdmVjIG1vbm9ncmFtbWUgQSBkb3LDqSwgbm9tIGVuIGNhcGl0YWxlcyBlc3BhY8OpZXMgZXQgc291cy10aXRyZSBQcmVzdGlnZTwvZGVzYz4KCiAgPGRlZnM+CiAgICAKICA8L2RlZnM+CgogIDwhLS0gRm9uZCBub2lyIChzaW11bGVyIGZvbmQgbmV1dHJlKSAtLT4KICA8cmVjdCB3aWR0aD0iNjgwIiBoZWlnaHQ9IjY4MCIgZmlsbD0iIzBlMTYyOSIgc3R5bGU9ImZpbGw6cmdiKDE0LCAyMiwgNDEpO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIENlcmNsZSBleHTDqXJpZXVyIChib3JkdXJlIGZpbmUgb3IpIC0tPgogIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjM0MCIgcj0iMjk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE4NEMiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjAxLCAxNjgsIDc2KTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjEuMnB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIENlcmNsZSByZW1wbGkgYmxldSBtYXJpbmUgLS0+CiAgPGNpcmNsZSBjeD0iMzQwIiBjeT0iMzQwIiByPSIyODIiIGZpbGw9IiMxYTI3NDQiIHN0eWxlPSJmaWxsOnJnYigyNiwgMzksIDY4KTtzdHJva2U6bm9uZTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iLz4KCiAgPCEtLSBEZXV4acOobWUgY2VyY2xlIGludMOpcmlldXIgZmluIG9yIC0tPgogIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjM0MCIgcj0iMjY4IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE4NEMiIHN0cm9rZS13aWR0aD0iMC43IiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjAxLCAxNjgsIDc2KTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjAuN3B4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIE1vbm9ncmFtbWUgQSAtLT4KICA8dGV4dCB4PSIzNDAiIHk9IjMzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjEwIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjQzlBODRDIiBsZXR0ZXItc3BhY2luZz0iLTQiIHN0eWxlPSJmaWxsOnJnYigyMDEsIDE2OCwgNzYpO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTpHZW9yZ2lhLCAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDssIHNlcmlmO2ZvbnQtc2l6ZToyMTBweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6bWlkZGxlO2RvbWluYW50LWJhc2VsaW5lOmF1dG8iPkE8L3RleHQ+CgogIDwhLS0gTGlnbmUgaG9yaXpvbnRhbGUgc8OpcGFyYXRyaWNlIC0tPgogIDxsaW5lIHgxPSIyMjAiIHkxPSIzODUiIHgyPSI0NjAiIHkyPSIzODUiIHN0cm9rZT0iI0M5QTg0QyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0eWxlPSJmaWxsOnJnYigwLCAwLCAwKTtzdHJva2U6cmdiKDIwMSwgMTY4LCA3Nik7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDowLjhweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iLz4KCiAgPCEtLSBOb20gZGUgbGEgbWFycXVlIC0tPgogIDx0ZXh0IHg9IjM0MCIgeT0iNDI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjQzlBODRDIiBsZXR0ZXItc3BhY2luZz0iOCIgc3R5bGU9ImZpbGw6cmdiKDIwMSwgMTY4LCA3Nik7c3Ryb2tlOm5vbmU7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7b3BhY2l0eToxO2ZvbnQtZmFtaWx5Okdlb3JnaWEsICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90Oywgc2VyaWY7Zm9udC1zaXplOjIycHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOm1pZGRsZTtkb21pbmFudC1iYXNlbGluZTphdXRvIj5BUE9Hw4lFICZhbXA7IENPPC90ZXh0PgoKICA8IS0tIFNvdXMtdGl0cmUgUHJlc3RpZ2UgLS0+CiAgPHRleHQgeD0iMzQwIiB5PSI0NjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM4YTlhYjgiIGxldHRlci1zcGFjaW5nPSI3IiBzdHlsZT0iZmlsbDpyZ2IoMTM4LCAxNTQsIDE4NCk7c3Ryb2tlOm5vbmU7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7b3BhY2l0eToxO2ZvbnQtZmFtaWx5Okdlb3JnaWEsICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90Oywgc2VyaWY7Zm9udC1zaXplOjExcHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOm1pZGRsZTtkb21pbmFudC1iYXNlbGluZTphdXRvIj5QUkVTVElHRTwvdGV4dD4KCjwvc3ZnPg==" alt="Apogée & Co"/>
+    <div class="nav-brand">APOGÉE & CO<span>PRESTIGE</span></div>
+  </a>
+  <a href="mentions_legales.html" class="nav-back">← MENTIONS LÉGALES</a>
+</nav>
+
+<div class="hero">
+  <div class="badge">RGPD — RÈGLEMENT (UE) 2016/679</div>
+  <h1>Politique de protection<br>des données personnelles</h1>
+  <p class="meta">Version 1.0 — Entrée en vigueur : avril 2025 — Dernière mise à jour : avril 2025</p>
+  <p class="dpo"><strong>Responsable du traitement :</strong> Apogée & Co — SIRET 980 327 670 00017<br>
+  16 Rue Émile Baudot, 91120 Palaiseau — <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a></p>
+</div>
+
+<!-- SOMMAIRE -->
+<div class="toc">
+  <div class="toc-box">
+    <div class="toc-title">SOMMAIRE</div>
+    <div class="toc-grid">
+      <a href="#art1" class="toc-item">Art. 1 — Champ d'application</a>
+      <a href="#art2" class="toc-item">Art. 2 — Responsable du traitement</a>
+      <a href="#art3" class="toc-item">Art. 3 — Données collectées</a>
+      <a href="#art4" class="toc-item">Art. 4 — Bases légales</a>
+      <a href="#art5" class="toc-item">Art. 5 — Finalités & durées</a>
+      <a href="#art6" class="toc-item">Art. 6 — Destinataires & transferts</a>
+      <a href="#art7" class="toc-item">Art. 7 — Sous-traitants</a>
+      <a href="#art8" class="toc-item">Art. 8 — Droits des personnes</a>
+      <a href="#art9" class="toc-item">Art. 9 — Cookies & traceurs</a>
+      <a href="#art10" class="toc-item">Art. 10 — Sécurité</a>
+      <a href="#art11" class="toc-item">Art. 11 — Mineurs</a>
+      <a href="#art12" class="toc-item">Art. 12 — Modifications</a>
+      <a href="#art13" class="toc-item">Art. 13 — Contact & réclamations</a>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ART 1 -->
+<div class="art" id="art1">
+  <div class="art-num">ARTICLE 1</div>
+  <h2>Champ d'application</h2>
+  <p>La présente politique de protection des données personnelles (ci-après « la Politique ») s'applique à l'ensemble des traitements de données personnelles mis en œuvre par <strong>Apogée & Co</strong> dans le cadre de :</p>
+  <ul>
+    <li>La navigation sur le site internet <strong>apogeeco.fr</strong> (ci-après « le Site »)</li>
+    <li>L'utilisation du formulaire de contact disponible sur le Site</li>
+    <li>Toute communication entre l'utilisateur et Apogée & Co</li>
+  </ul>
+  <p>Elle est rédigée conformément au <strong>Règlement (UE) 2016/679 du Parlement européen et du Conseil du 27 avril 2016</strong> relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel (RGPD), ainsi qu'à la <strong>loi n° 78-17 du 6 janvier 1978</strong> modifiée relative à l'informatique, aux fichiers et aux libertés (loi Informatique et Libertés).</p>
+  <div class="box box-gold">
+    <div class="box-label">DÉFINITION</div>
+    <p>Une <strong>donnée personnelle</strong> est toute information se rapportant à une personne physique identifiée ou identifiable (nom, prénom, adresse email, numéro de téléphone, adresse IP, etc.).</p>
+  </div>
+</div>
+
+<!-- ART 2 -->
+<div class="art" id="art2">
+  <div class="art-num">ARTICLE 2</div>
+  <h2>Responsable du traitement</h2>
+  <table>
+    <tr><th>INFORMATION</th><th>DÉTAIL</th></tr>
+    <tr><td><strong>Dénomination</strong></td><td>Apogée & Co</td></tr>
+    <tr><td><strong>SIRET</strong></td><td>980 327 670 00017</td></tr>
+    <tr><td><strong>Adresse</strong></td><td>16 Rue Émile Baudot, 91120 Palaiseau, France</td></tr>
+    <tr><td><strong>Email</strong></td><td><a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a></td></tr>
+    <tr><td><strong>Représentant légal</strong></td><td>Représentant légal d'Apogée & Co</td></tr>
+  </table>
+  <p>Le responsable du traitement détermine les finalités et les moyens du traitement des données personnelles collectées via le Site.</p>
+</div>
+
+<!-- ART 3 -->
+<div class="art" id="art3">
+  <div class="art-num">ARTICLE 3</div>
+  <h2>Données collectées</h2>
+  <h3>3.1 — DONNÉES COLLECTÉES DIRECTEMENT (FORMULAIRE DE CONTACT)</h3>
+  <table>
+    <tr><th>DONNÉE</th><th>CARACTÈRE</th><th>SOURCE</th></tr>
+    <tr><td><strong>Nom et prénom</strong></td><td>Obligatoire</td><td>Saisie utilisateur</td></tr>
+    <tr><td><strong>Adresse email</strong></td><td>Obligatoire</td><td>Saisie utilisateur</td></tr>
+    <tr><td><strong>Numéro de téléphone</strong></td><td>Facultatif</td><td>Saisie utilisateur</td></tr>
+    <tr><td><strong>Service souhaité</strong></td><td>Facultatif</td><td>Saisie utilisateur</td></tr>
+    <tr><td><strong>Contenu du message</strong></td><td>Obligatoire</td><td>Saisie utilisateur</td></tr>
+  </table>
+
+  <h3>3.2 — DONNÉES COLLECTÉES AUTOMATIQUEMENT (NAVIGATION)</h3>
+  <table>
+    <tr><th>DONNÉE</th><th>COLLECTÉE PAR</th><th>FINALITÉ</th></tr>
+    <tr><td><strong>Adresse IP</strong></td><td>GitHub Pages (hébergeur)</td><td>Logs serveur, sécurité</td></tr>
+    <tr><td><strong>Navigateur & OS</strong></td><td>GitHub Pages</td><td>Logs serveur techniques</td></tr>
+    <tr><td><strong>Pages visitées</strong></td><td>GitHub Pages</td><td>Logs serveur techniques</td></tr>
+    <tr><td><strong>Préférences cookies</strong></td><td>Site (localStorage)</td><td>Mémorisation du consentement</td></tr>
+  </table>
+
+  <div class="box box-info">
+    <div class="box-label">PRINCIPE DE MINIMISATION (ART. 5.1.C RGPD)</div>
+    <p>Apogée & Co ne collecte que les données strictement nécessaires aux finalités poursuivies. Aucune donnée sensible (art. 9 RGPD) n'est collectée.</p>
+  </div>
+</div>
+
+<!-- ART 4 -->
+<div class="art" id="art4">
+  <div class="art-num">ARTICLE 4</div>
+  <h2>Bases légales des traitements</h2>
+  <p>Conformément à l'article 6 du RGPD, chaque traitement repose sur une base légale :</p>
+  <table>
+    <tr><th>TRAITEMENT</th><th>BASE LÉGALE</th><th>RÉFÉRENCE RGPD</th></tr>
+    <tr><td>Traitement du formulaire de contact</td><td>Consentement explicite de l'utilisateur</td><td>Art. 6.1.a</td></tr>
+    <tr><td>Réponse à une demande de service</td><td>Mesures précontractuelles à la demande de la personne</td><td>Art. 6.1.b</td></tr>
+    <tr><td>Logs serveur (hébergeur)</td><td>Intérêt légitime (sécurité et bon fonctionnement)</td><td>Art. 6.1.f</td></tr>
+    <tr><td>Mémorisation du consentement cookies</td><td>Obligation légale (directive ePrivacy)</td><td>Art. 6.1.c</td></tr>
+  </table>
+  <div class="box box-gold">
+    <div class="box-label">RETRAIT DU CONSENTEMENT</div>
+    <p>Lorsque le traitement est fondé sur le consentement (art. 6.1.a), vous pouvez retirer ce consentement à tout moment, sans porter atteinte à la licéité du traitement fondé sur le consentement effectué avant ce retrait, en nous contactant à <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a>.</p>
+  </div>
+</div>
+
+<!-- ART 5 -->
+<div class="art" id="art5">
+  <div class="art-num">ARTICLE 5</div>
+  <h2>Finalités et durées de conservation</h2>
+  <table>
+    <tr><th>FINALITÉ</th><th>DONNÉES CONCERNÉES</th><th>DURÉE DE CONSERVATION</th><th>ARCHIVAGE</th></tr>
+    <tr><td>Gestion et réponse aux demandes de contact</td><td>Nom, email, téléphone, message</td><td><strong>3 ans</strong> à compter du dernier contact</td><td>Suppression définitive à l'issue</td></tr>
+    <tr><td>Prospection commerciale (si accord)</td><td>Nom, email</td><td><strong>3 ans</strong> à compter du recueil du consentement</td><td>Suppression ou renouvellement du consentement</td></tr>
+    <tr><td>Logs serveur (sécurité)</td><td>Adresse IP, navigateur</td><td><strong>12 mois</strong></td><td>Suppression automatique par l'hébergeur</td></tr>
+    <tr><td>Consentement cookies</td><td>Préférences, date, méthode</td><td><strong>12 mois</strong></td><td>Nouveau recueil à l'expiration</td></tr>
+    <tr><td>Obligations comptables et légales</td><td>Données de facturation le cas échéant</td><td><strong>10 ans</strong></td><td>Archivage intermédiaire sécurisé</td></tr>
+  </table>
+  <div class="box box-warn">
+    <div class="box-label">PRINCIPE DE LIMITATION DE LA CONSERVATION (ART. 5.1.E RGPD)</div>
+    <p>À l'expiration des durées indiquées, les données sont <strong>supprimées définitivement</strong> ou anonymisées de manière irréversible, sauf obligation légale de conservation plus longue.</p>
+  </div>
+</div>
+
+<!-- ART 6 -->
+<div class="art" id="art6">
+  <div class="art-num">ARTICLE 6</div>
+  <h2>Destinataires et transferts de données</h2>
+  <h3>6.1 — DESTINATAIRES INTERNES</h3>
+  <p>Seul le responsable du traitement d'Apogée & Co a accès à vos données personnelles, dans la stricte limite de ses attributions et pour les finalités décrites à l'article 5.</p>
+
+  <h3>6.2 — TRANSFERTS VERS DES TIERS (SOUS-TRAITANTS)</h3>
+  <div class="box box-warn">
+    <div class="box-label">⚠ TRANSFERT HORS UNION EUROPÉENNE — ART. 46 RGPD</div>
+    <p>Vos données sont transmises à des sous-traitants établis aux <strong>États-Unis</strong>. Ces transferts sont encadrés par des <strong>Clauses Contractuelles Types (CCT)</strong> adoptées par la Commission européenne (décision 2021/914 du 4 juin 2021), offrant des garanties appropriées.</p>
+  </div>
+  <table>
+    <tr><th>SOUS-TRAITANT</th><th>DONNÉES TRANSMISES</th><th>FINALITÉ</th><th>PAYS</th><th>GARANTIE</th></tr>
+    <tr>
+      <td><strong>Formspree, Inc.</strong><br><small><a href="https://formspree.io/legal/privacy-policy" target="_blank">Politique de confidentialité</a></small></td>
+      <td>Nom, email, téléphone, service, message</td>
+      <td>Acheminement du formulaire de contact vers l'email du responsable. <em>Données non revendues.</em></td>
+      <td>🇺🇸 États-Unis</td>
+      <td>CCT UE + DPA signé</td>
+    </tr>
+    <tr>
+      <td><strong>GitHub, Inc.</strong><br><small><a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">Politique de confidentialité</a></small></td>
+      <td>Adresse IP, logs de navigation</td>
+      <td>Hébergement des fichiers statiques du site (GitHub Pages)</td>
+      <td>🇺🇸 États-Unis</td>
+      <td>CCT UE + DPA signé</td>
+    </tr>
+  </table>
+  <p>Vos données ne sont <strong>ni vendues, ni louées, ni échangées</strong> avec des tiers à des fins commerciales ou publicitaires.</p>
+</div>
+
+<!-- ART 7 -->
+<div class="art" id="art7">
+  <div class="art-num">ARTICLE 7</div>
+  <h2>Sous-traitants — Obligations contractuelles</h2>
+  <p>Conformément à l'article 28 du RGPD, tout sous-traitant auquel Apogée & Co fait appel est lié par un <strong>accord de traitement des données (Data Processing Agreement — DPA)</strong> qui impose notamment :</p>
+  <ul>
+    <li>De ne traiter les données personnelles que sur instruction documentée du responsable de traitement</li>
+    <li>De garantir la confidentialité des données par les personnes autorisées à les traiter</li>
+    <li>De mettre en œuvre les mesures de sécurité appropriées (art. 32 RGPD)</li>
+    <li>De respecter les conditions applicables au recours à un autre sous-traitant</li>
+    <li>D'aider le responsable à répondre aux demandes d'exercice des droits des personnes concernées</li>
+    <li>De supprimer ou restituer les données à l'issue de la prestation</li>
+    <li>De mettre à disposition toutes les informations nécessaires pour démontrer le respect des obligations</li>
+  </ul>
+</div>
+
+<!-- ART 8 -->
+<div class="art" id="art8">
+  <div class="art-num">ARTICLE 8</div>
+  <h2>Droits des personnes concernées</h2>
+  <p>Conformément aux articles 15 à 22 du RGPD, vous disposez des droits suivants :</p>
+  <div class="droits-grid">
+    <div class="droit-card">
+      <div class="droit-title">DROIT D'ACCÈS</div>
+      <div class="droit-art">Art. 15 RGPD</div>
+      <p>Obtenir confirmation que des données vous concernant sont traitées et en recevoir une copie.</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">DROIT DE RECTIFICATION</div>
+      <div class="droit-art">Art. 16 RGPD</div>
+      <p>Obtenir la correction de données inexactes ou incomplètes vous concernant.</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">DROIT À L'EFFACEMENT</div>
+      <div class="droit-art">Art. 17 RGPD</div>
+      <p>Obtenir la suppression de vos données dans les cas prévus par la loi ("droit à l'oubli").</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">DROIT À LA LIMITATION</div>
+      <div class="droit-art">Art. 18 RGPD</div>
+      <p>Obtenir la limitation du traitement de vos données dans certaines circonstances.</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">DROIT À LA PORTABILITÉ</div>
+      <div class="droit-art">Art. 20 RGPD</div>
+      <p>Recevoir vos données dans un format structuré, couramment utilisé et lisible par machine.</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">DROIT D'OPPOSITION</div>
+      <div class="droit-art">Art. 21 RGPD</div>
+      <p>Vous opposer au traitement de vos données fondé sur l'intérêt légitime ou la prospection.</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">RETRAIT DU CONSENTEMENT</div>
+      <div class="droit-art">Art. 7.3 RGPD</div>
+      <p>Retirer votre consentement à tout moment sans affecter les traitements antérieurs.</p>
+    </div>
+    <div class="droit-card">
+      <div class="droit-title">DIRECTIVES POST-MORTEM</div>
+      <div class="droit-art">Loi I&L — Art. 85</div>
+      <p>Définir des directives relatives au sort de vos données après votre décès.</p>
+    </div>
+  </div>
+
+  <h3>MODALITÉS D'EXERCICE DE VOS DROITS</h3>
+  <div class="box box-gold">
+    <div class="box-label">COMMENT EXERCER VOS DROITS</div>
+    <p>Envoyez votre demande par email à <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a> en précisant :<br>
+    — votre identité (nom, prénom)<br>
+    — le droit que vous souhaitez exercer<br>
+    — tout élément permettant de localiser vos données<br><br>
+    <strong>Délai de réponse :</strong> 1 mois à compter de la réception (prolongeable de 2 mois en cas de complexité, avec information préalable).<br>
+    <strong>Justificatif d'identité</strong> pouvant être demandé en cas de doute raisonnable sur votre identité (art. 12.6 RGPD).</p>
+  </div>
+
+  <h3>DROIT DE RÉCLAMATION AUPRÈS DE LA CNIL</h3>
+  <p>Si vous estimez que le traitement de vos données personnelles n'est pas conforme au RGPD, vous disposez du droit d'introduire une réclamation auprès de l'autorité de contrôle compétente :</p>
+  <div class="box box-info">
+    <div class="box-label">CNIL — COMMISSION NATIONALE DE L'INFORMATIQUE ET DES LIBERTÉS</div>
+    <p><strong>Adresse :</strong> 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07<br>
+    <strong>Site :</strong> <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a><br>
+    <strong>Téléphone :</strong> 01 53 73 22 22</p>
+  </div>
+</div>
+
+<!-- ART 9 -->
+<div class="art" id="art9">
+  <div class="art-num">ARTICLE 9</div>
+  <h2>Cookies et traceurs</h2>
+  <p>Un cookie est un fichier texte déposé sur votre terminal lors de votre navigation. Conformément à l'article 82 de la loi Informatique et Libertés et aux <strong>recommandations de la CNIL du 17 septembre 2020</strong>, votre consentement préalable est requis avant tout dépôt de cookie non essentiel.</p>
+
+  <h3>9.1 — CATÉGORIES DE COOKIES</h3>
+  <table>
+    <tr><th>CATÉGORIE</th><th>NOM</th><th>FINALITÉ</th><th>DURÉE</th><th>CONSENTEMENT</th></tr>
+    <tr>
+      <td><strong>Essentiels</strong></td>
+      <td>cookie_consent_v2</td>
+      <td>Mémorisation de vos préférences de consentement (date, catégories, méthode, version)</td>
+      <td>12 mois</td>
+      <td>Non requis (art. 82 LIL)</td>
+    </tr>
+    <tr>
+      <td><strong>Techniques</strong></td>
+      <td>Google Fonts (requête externe)</td>
+      <td>Chargement des polices typographiques — transfert de l'IP vers Google LLC</td>
+      <td>Session</td>
+      <td>Non requis (essentiel à l'affichage)</td>
+    </tr>
+    <tr>
+      <td><strong>Analytics</strong></td>
+      <td>—</td>
+      <td>Mesure d'audience — <em>non utilisés à ce jour</em></td>
+      <td>—</td>
+      <td>Requis si activés</td>
+    </tr>
+    <tr>
+      <td><strong>Marketing</strong></td>
+      <td>—</td>
+      <td>Publicité ciblée — <em>non utilisés à ce jour</em></td>
+      <td>—</td>
+      <td>Requis si activés</td>
+    </tr>
+  </table>
+
+  <h3>9.2 — PREUVE DU CONSENTEMENT</h3>
+  <p>Votre consentement est enregistré dans un objet JSON structuré (localStorage) contenant :</p>
+  <ul>
+    <li><strong>version</strong> — version de la politique en vigueur au moment du consentement</li>
+    <li><strong>timestamp</strong> — date et heure exactes (format ISO 8601)</li>
+    <li><strong>method</strong> — méthode utilisée : <em>accept_all</em> / <em>refuse_all</em> / <em>custom</em></li>
+    <li><strong>essential / analytics / marketing</strong> — état de chaque catégorie</li>
+    <li><strong>userAgent</strong> — navigateur utilisé (100 premiers caractères)</li>
+  </ul>
+  <p>Ce consentement est valable <strong>12 mois</strong> conformément aux recommandations CNIL. À l'expiration, le bandeau s'affiche à nouveau.</p>
+
+  <h3>9.3 — GÉRER VOS PRÉFÉRENCES</h3>
+  <p>Vous pouvez modifier vos préférences à tout moment via le bandeau cookies accessible en bas de chaque page, ou en consultant notre <a href="mentions_legales.html">politique de cookies</a>. Vous pouvez également configurer votre navigateur pour bloquer ou supprimer les cookies.</p>
+</div>
+
+<!-- ART 10 -->
+<div class="art" id="art10">
+  <div class="art-num">ARTICLE 10</div>
+  <h2>Sécurité des données</h2>
+  <p>Conformément à l'article 32 du RGPD, Apogée & Co met en œuvre les mesures techniques et organisationnelles appropriées pour garantir un niveau de sécurité adapté au risque :</p>
+  <ul>
+    <li><strong>Chiffrement HTTPS</strong> — toutes les communications entre votre navigateur et le site sont chiffrées via le protocole TLS</li>
+    <li><strong>Accès restreint</strong> — seul le responsable du traitement a accès aux données collectées</li>
+    <li><strong>Transmission sécurisée</strong> — les données du formulaire sont transmises via HTTPS à Formspree</li>
+    <li><strong>Hébergement sécurisé</strong> — GitHub Pages dispose de certifications de sécurité reconnues</li>
+    <li><strong>Pas de stockage local sensible</strong> — aucune donnée personnelle n'est stockée dans le navigateur (localStorage ne contient que les préférences cookies)</li>
+  </ul>
+  <div class="box box-warn">
+    <div class="box-label">VIOLATION DE DONNÉES (ART. 33-34 RGPD)</div>
+    <p>En cas de violation de données susceptible d'engendrer un risque pour vos droits et libertés, Apogée & Co s'engage à notifier la CNIL dans les <strong>72 heures</strong> et à vous en informer dans les meilleurs délais si le risque est élevé.</p>
+  </div>
+</div>
+
+<!-- ART 11 -->
+<div class="art" id="art11">
+  <div class="art-num">ARTICLE 11</div>
+  <h2>Protection des mineurs</h2>
+  <p>Le Site et les services d'Apogée & Co sont destinés à un public adulte. Apogée & Co ne collecte pas sciemment de données personnelles concernant des enfants de moins de 15 ans sans le consentement préalable et vérifiable de leurs parents ou tuteurs légaux, conformément à l'article 8 du RGPD.</p>
+  <p>Si vous avez connaissance qu'un mineur de moins de 15 ans nous a transmis des données personnelles sans ce consentement, veuillez nous contacter à <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a> afin que nous procédions à leur suppression.</p>
+</div>
+
+<!-- ART 12 -->
+<div class="art" id="art12">
+  <div class="art-num">ARTICLE 12</div>
+  <h2>Modifications de la politique</h2>
+  <p>Apogée & Co se réserve le droit de modifier la présente Politique à tout moment, notamment pour se conformer à toute évolution légale, réglementaire, jurisprudentielle ou technique.</p>
+  <p>En cas de modification substantielle, vous serez informé par un bandeau visible lors de votre prochaine visite sur le Site. La date de la dernière mise à jour est indiquée en haut de ce document.</p>
+  <p>La version en vigueur au moment de votre consentement est celle qui vous est applicable. Nous vous encourageons à consulter régulièrement cette page.</p>
+</div>
+
+<!-- ART 13 -->
+<div class="art" id="art13">
+  <div class="art-num">ARTICLE 13</div>
+  <h2>Contact et réclamations</h2>
+  <h3>POUR TOUTE QUESTION RELATIVE À CETTE POLITIQUE</h3>
+  <div class="box box-gold">
+    <div class="box-label">CONTACT PROTECTION DES DONNÉES</div>
+    <p><strong>Apogée & Co</strong><br>
+    16 Rue Émile Baudot, 91120 Palaiseau<br>
+    Email : <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a><br>
+    Objet du mail : <em>"Demande RGPD — [votre demande]"</em></p>
+  </div>
+  <h3>AUTORITÉ DE CONTRÔLE COMPÉTENTE</h3>
+  <p>Toute réclamation peut être adressée à la <strong>CNIL</strong> :<br>
+  — En ligne : <a href="https://www.cnil.fr/fr/plaintes" target="_blank">www.cnil.fr/fr/plaintes</a><br>
+  — Par courrier : CNIL, 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07</p>
+  <h3>DROIT APPLICABLE ET JURIDICTION</h3>
+  <p>La présente Politique est régie par le droit français. En cas de litige relatif à son interprétation ou à son exécution, les tribunaux français seront seuls compétents.</p>
+</div>
+
+<!-- SIGNATURE -->
+<div class="signature">
+  <img class="sig-logo" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgdmlld0JveD0iMCAwIDY4MCA2OTAiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8dGl0bGUgc3R5bGU9ImZpbGw6cmdiKDAsIDAsIDApO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byI+TG9nbyBBcG9nw6llICZhbXA7IENvIFByZXN0aWdlIOKAlCB2ZXJzaW9uIGZ1c2lvbm7DqWU8L3RpdGxlPgogIDxkZXNjIHN0eWxlPSJmaWxsOnJnYigwLCAwLCAwKTtzdHJva2U6bm9uZTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iPkxvZ28gY2lyY3VsYWlyZSBibGV1IG1hcmluZSBhdmVjIG1vbm9ncmFtbWUgQSBkb3LDqSwgbm9tIGVuIGNhcGl0YWxlcyBlc3BhY8OpZXMgZXQgc291cy10aXRyZSBQcmVzdGlnZTwvZGVzYz4KCiAgPGRlZnM+CiAgICAKICA8L2RlZnM+CgogIDwhLS0gRm9uZCBub2lyIChzaW11bGVyIGZvbmQgbmV1dHJlKSAtLT4KICA8cmVjdCB3aWR0aD0iNjgwIiBoZWlnaHQ9IjY4MCIgZmlsbD0iIzBlMTYyOSIgc3R5bGU9ImZpbGw6cmdiKDE0LCAyMiwgNDEpO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIENlcmNsZSBleHTDqXJpZXVyIChib3JkdXJlIGZpbmUgb3IpIC0tPgogIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjM0MCIgcj0iMjk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE4NEMiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjAxLCAxNjgsIDc2KTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjEuMnB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIENlcmNsZSByZW1wbGkgYmxldSBtYXJpbmUgLS0+CiAgPGNpcmNsZSBjeD0iMzQwIiBjeT0iMzQwIiByPSIyODIiIGZpbGw9IiMxYTI3NDQiIHN0eWxlPSJmaWxsOnJnYigyNiwgMzksIDY4KTtzdHJva2U6bm9uZTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iLz4KCiAgPCEtLSBEZXV4acOobWUgY2VyY2xlIGludMOpcmlldXIgZmluIG9yIC0tPgogIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjM0MCIgcj0iMjY4IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE4NEMiIHN0cm9rZS13aWR0aD0iMC43IiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjAxLCAxNjgsIDc2KTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjAuN3B4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIE1vbm9ncmFtbWUgQSAtLT4KICA8dGV4dCB4PSIzNDAiIHk9IjMzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjEwIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjQzlBODRDIiBsZXR0ZXItc3BhY2luZz0iLTQiIHN0eWxlPSJmaWxsOnJnYigyMDEsIDE2OCwgNzYpO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTpHZW9yZ2lhLCAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDssIHNlcmlmO2ZvbnQtc2l6ZToyMTBweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6bWlkZGxlO2RvbWluYW50LWJhc2VsaW5lOmF1dG8iPkE8L3RleHQ+CgogIDwhLS0gTGlnbmUgaG9yaXpvbnRhbGUgc8OpcGFyYXRyaWNlIC0tPgogIDxsaW5lIHgxPSIyMjAiIHkxPSIzODUiIHgyPSI0NjAiIHkyPSIzODUiIHN0cm9rZT0iI0M5QTg0QyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0eWxlPSJmaWxsOnJnYigwLCAwLCAwKTtzdHJva2U6cmdiKDIwMSwgMTY4LCA3Nik7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDowLjhweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iLz4KCiAgPCEtLSBOb20gZGUgbGEgbWFycXVlIC0tPgogIDx0ZXh0IHg9IjM0MCIgeT0iNDI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjQzlBODRDIiBsZXR0ZXItc3BhY2luZz0iOCIgc3R5bGU9ImZpbGw6cmdiKDIwMSwgMTY4LCA3Nik7c3Ryb2tlOm5vbmU7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7b3BhY2l0eToxO2ZvbnQtZmFtaWx5Okdlb3JnaWEsICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90Oywgc2VyaWY7Zm9udC1zaXplOjIycHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOm1pZGRsZTtkb21pbmFudC1iYXNlbGluZTphdXRvIj5BUE9Hw4lFICZhbXA7IENPPC90ZXh0PgoKICA8IS0tIFNvdXMtdGl0cmUgUHJlc3RpZ2UgLS0+CiAgPHRleHQgeD0iMzQwIiB5PSI0NjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM4YTlhYjgiIGxldHRlci1zcGFjaW5nPSI3IiBzdHlsZT0iZmlsbDpyZ2IoMTM4LCAxNTQsIDE4NCk7c3Ryb2tlOm5vbmU7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7b3BhY2l0eToxO2ZvbnQtZmFtaWx5Okdlb3JnaWEsICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90Oywgc2VyaWY7Zm9udC1zaXplOjExcHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOm1pZGRsZTtkb21pbmFudC1iYXNlbGluZTphdXRvIj5QUkVTVElHRTwvdGV4dD4KCjwvc3ZnPg==" alt="Apogée & Co"/>
+  <div class="sig-name">APOGÉE & CO</div>
+  <div class="sig-sub">CONCIERGERIE · HÔTELLERIE · ÉVÉNEMENTIEL · PRESTIGE</div>
+  <div class="sig-date">Document établi à Palaiseau, le avril 2025<br>
+  SIRET 980 327 670 00017 — 16 Rue Émile Baudot, 91120 Palaiseau</div>
+</div>
+
+</div><!-- end content -->
+
+<footer>
+  <div class="footer-brand">APOGÉE & CO</div>
+  <div class="footer-copy">© 2025 Apogée & Co — Tous droits réservés</div>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="mentions_legales.html">Mentions légales</a>
+  </div>
+</footer>
+
+</body>
+</html>
