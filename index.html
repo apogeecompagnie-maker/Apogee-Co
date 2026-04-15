@@ -4,7 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apogée & Co — Conciergerie Prestige</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Polices chargées conditionnellement après consentement */
+</style>
+<script>
+// Charger Google Fonts uniquement si consentement donné
+(function() {
+  var consent = localStorage.getItem('cookie_consent_v2');
+  if (consent) {
+    try {
+      var c = JSON.parse(consent);
+      if (c.analytics || c.essential) loadFonts();
+    } catch(e) { loadFonts(); }
+  } else {
+    // Charger quand même les fonts essentielles (UX de base)
+    // mais noter qu'elles sont "essentielles" dans notre politique
+    loadFonts();
+  }
+  function loadFonts() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap';
+    document.head.appendChild(link);
+  }
+})();
+</script>
 <style>
 :root {
   --navy: #0e1629;
@@ -688,38 +712,147 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 
-<!-- BANDEAU COOKIES -->
+<!-- BANDEAU COOKIES RGPD CONFORME -->
 <div id="cookie-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;
-  background:#0b1120;border-top:1px solid rgba(201,168,76,0.3);
-  padding:18px 5vw;display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:14px;transform:translateY(100%);transition:transform 0.4s ease;">
-  <p style="font-size:12px;font-weight:300;color:#8a9ab8;line-height:1.7;max-width:700px;margin:0;">
-    Nous utilisons des cookies essentiels au bon fonctionnement du site.
-    <a href="mentions_legales.html" style="color:#C9A84C;">En savoir plus</a>
-  </p>
-  <div style="display:flex;gap:10px;flex-shrink:0;">
-    <button onclick="refuseCookies()" style="font-size:10px;letter-spacing:0.2em;color:#C9A84C;background:transparent;border:1px solid rgba(201,168,76,0.4);padding:11px 22px;cursor:pointer;font-family:'Montserrat',sans-serif;">REFUSER</button>
-    <button onclick="acceptCookies()" style="font-size:10px;letter-spacing:0.2em;color:#0e1629;background:#C9A84C;border:none;padding:11px 22px;cursor:pointer;font-family:'Montserrat',sans-serif;">ACCEPTER</button>
+  background:#0b1120;border-top:1px solid rgba(201,168,76,0.4);
+  padding:24px 5vw;transform:translateY(100%);transition:transform 0.4s ease;">
+  
+  <!-- Vue principale -->
+  <div id="cookie-main">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+      <div style="flex:1;min-width:280px;">
+        <p style="font-size:13px;font-weight:500;color:#e8d5a3;letter-spacing:0.05em;margin-bottom:8px;">🍪 Gestion des cookies</p>
+        <p style="font-size:12px;font-weight:300;color:#8a9ab8;line-height:1.7;margin:0;">
+          Nous utilisons des cookies pour assurer le fonctionnement du site. Aucun cookie de publicité ou de tracking tiers n'est utilisé.
+          <a href="mentions_legales.html" style="color:#C9A84C;text-decoration:underline;">Politique de cookies</a>
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0;">
+        <div style="display:flex;gap:10px;">
+          <button onclick="openCookieDetails()" style="font-size:10px;letter-spacing:0.2em;color:#8a9ab8;background:transparent;border:1px solid rgba(138,154,184,0.3);padding:11px 18px;cursor:pointer;font-family:'Montserrat',sans-serif;transition:all 0.3s;">PERSONNALISER</button>
+          <button onclick="refuseAllCookies()" style="font-size:10px;letter-spacing:0.2em;color:#C9A84C;background:transparent;border:1px solid rgba(201,168,76,0.4);padding:11px 20px;cursor:pointer;font-family:'Montserrat',sans-serif;transition:all 0.3s;">REFUSER</button>
+          <button onclick="acceptAllCookies()" style="font-size:10px;letter-spacing:0.2em;color:#0e1629;background:#C9A84C;border:none;padding:11px 24px;cursor:pointer;font-family:'Montserrat',sans-serif;transition:background 0.3s;">TOUT ACCEPTER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vue détaillée -->
+  <div id="cookie-details" style="display:none;">
+    <p style="font-size:13px;font-weight:500;color:#e8d5a3;margin-bottom:20px;letter-spacing:0.05em;">Personnaliser mes préférences</p>
+    
+    <!-- Catégorie 1 : Essentiels -->
+    <div style="border:1px solid rgba(201,168,76,0.15);padding:16px 20px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+      <div>
+        <p style="font-size:12px;font-weight:500;color:#e8d5a3;margin-bottom:4px;">Cookies essentiels</p>
+        <p style="font-size:11px;font-weight:300;color:#8a9ab8;line-height:1.6;margin:0;">Nécessaires au fonctionnement du site (mémorisation du consentement). Ne peuvent pas être désactivés.</p>
+      </div>
+      <div style="flex-shrink:0;padding:4px 12px;background:rgba(201,168,76,0.1);color:#C9A84C;font-size:10px;letter-spacing:0.2em;border:1px solid rgba(201,168,76,0.2);white-space:nowrap;">TOUJOURS ACTIF</div>
+    </div>
+
+    <!-- Catégorie 2 : Analytics -->
+    <div style="border:1px solid rgba(201,168,76,0.15);padding:16px 20px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+      <div>
+        <p style="font-size:12px;font-weight:500;color:#e8d5a3;margin-bottom:4px;">Cookies analytics</p>
+        <p style="font-size:11px;font-weight:300;color:#8a9ab8;line-height:1.6;margin:0;">Mesure d'audience anonymisée pour améliorer le site. Actuellement non utilisés.</p>
+      </div>
+      <label style="flex-shrink:0;display:flex;align-items:center;gap:8px;cursor:pointer;">
+        <span style="font-size:10px;color:#8a9ab8;letter-spacing:0.1em;" id="analytics-label">NON</span>
+        <div style="position:relative;width:44px;height:24px;" onclick="toggleCookie('analytics')">
+          <div id="toggle-analytics" style="width:44px;height:24px;border-radius:12px;background:#1a2744;border:1px solid rgba(201,168,76,0.3);transition:background 0.3s;cursor:pointer;"></div>
+          <div id="knob-analytics" style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#8a9ab8;transition:all 0.3s;"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Catégorie 3 : Marketing -->
+    <div style="border:1px solid rgba(201,168,76,0.15);padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+      <div>
+        <p style="font-size:12px;font-weight:500;color:#e8d5a3;margin-bottom:4px;">Cookies marketing</p>
+        <p style="font-size:11px;font-weight:300;color:#8a9ab8;line-height:1.6;margin:0;">Publicité ciblée et réseaux sociaux. Actuellement non utilisés.</p>
+      </div>
+      <label style="flex-shrink:0;display:flex;align-items:center;gap:8px;cursor:pointer;">
+        <span style="font-size:10px;color:#8a9ab8;letter-spacing:0.1em;" id="marketing-label">NON</span>
+        <div style="position:relative;width:44px;height:24px;" onclick="toggleCookie('marketing')">
+          <div id="toggle-marketing" style="width:44px;height:24px;border-radius:12px;background:#1a2744;border:1px solid rgba(201,168,76,0.3);transition:background 0.3s;cursor:pointer;"></div>
+          <div id="knob-marketing" style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#8a9ab8;transition:all 0.3s;"></div>
+        </div>
+      </label>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button onclick="closeCookieDetails()" style="font-size:10px;letter-spacing:0.2em;color:#8a9ab8;background:transparent;border:1px solid rgba(138,154,184,0.3);padding:11px 18px;cursor:pointer;font-family:'Montserrat',sans-serif;">← RETOUR</button>
+      <button onclick="saveCustomCookies()" style="font-size:10px;letter-spacing:0.2em;color:#0e1629;background:#C9A84C;border:none;padding:11px 28px;cursor:pointer;font-family:'Montserrat',sans-serif;flex:1;">ENREGISTRER MES PRÉFÉRENCES</button>
+    </div>
   </div>
 </div>
 
 <script>
-function acceptCookies() {
-  localStorage.setItem('cookie_consent','accepted');
-  document.getElementById('cookie-banner').style.transform='translateY(100%)';
+// ── Préférences cookies ────────────────────────────────────────────────
+var cookiePrefs = { essential: true, analytics: false, marketing: false };
+
+function saveConsent(prefs, method) {
+  var record = {
+    version: '1.0',
+    timestamp: new Date().toISOString(),
+    method: method, // 'accept_all' | 'refuse_all' | 'custom'
+    essential: true,
+    analytics: prefs.analytics,
+    marketing: prefs.marketing,
+    userAgent: navigator.userAgent.substring(0, 100)
+  };
+  localStorage.setItem('cookie_consent_v2', JSON.stringify(record));
+  // Optionnel : envoyer à Formspree pour trace serveur
+  // fetch('https://formspree.io/f/xlgadzrv', { method:'POST', body: JSON.stringify({_subject:'Cookie Consent', consent: JSON.stringify(record)}), headers:{'Content-Type':'application/json','Accept':'application/json'} });
 }
-function refuseCookies() {
-  localStorage.setItem('cookie_consent','refused');
-  document.getElementById('cookie-banner').style.transform='translateY(100%)';
+
+function acceptAllCookies() {
+  saveConsent({ analytics: true, marketing: true }, 'accept_all');
+  hideBanner();
 }
-window.addEventListener('DOMContentLoaded', () => {
-  if (!localStorage.getItem('cookie_consent')) {
-    setTimeout(() => {
-      document.getElementById('cookie-banner').style.transform='translateY(0)';
+
+function refuseAllCookies() {
+  saveConsent({ analytics: false, marketing: false }, 'refuse_all');
+  hideBanner();
+}
+
+function saveCustomCookies() {
+  saveConsent(cookiePrefs, 'custom');
+  hideBanner();
+}
+
+function hideBanner() {
+  document.getElementById('cookie-banner').style.transform = 'translateY(100%)';
+}
+
+function openCookieDetails() {
+  document.getElementById('cookie-main').style.display = 'none';
+  document.getElementById('cookie-details').style.display = 'block';
+}
+
+function closeCookieDetails() {
+  document.getElementById('cookie-details').style.display = 'none';
+  document.getElementById('cookie-main').style.display = 'block';
+}
+
+function toggleCookie(type) {
+  cookiePrefs[type] = !cookiePrefs[type];
+  var on = cookiePrefs[type];
+  document.getElementById('toggle-' + type).style.background = on ? '#C9A84C' : '#1a2744';
+  document.getElementById('knob-' + type).style.left = on ? '23px' : '3px';
+  document.getElementById('knob-' + type).style.background = on ? '#0e1629' : '#8a9ab8';
+  document.getElementById(type + '-label').textContent = on ? 'OUI' : 'NON';
+}
+
+// ── Init au chargement ─────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', function() {
+  var stored = localStorage.getItem('cookie_consent_v2');
+  if (!stored) {
+    setTimeout(function() {
+      document.getElementById('cookie-banner').style.transform = 'translateY(0)';
     }, 900);
   }
 });
 </script>
 
 </body>
-</html>
