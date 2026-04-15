@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales & Politique de confidentialité — Apogée & Co</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0e1629;
+  --navy-mid: #1a2744;
+  --gold: #C9A84C;
+  --gold-light: #e8d5a3;
+  --blue-gray: #8a9ab8;
+  --text-light: #d4c9b0;
+  --cream: #f5f0e8;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family:'Montserrat',sans-serif; background:var(--navy); color:var(--text-light); }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 5vw; height:72px;
+  background:rgba(14,22,41,0.97);
+  border-bottom:1px solid rgba(201,168,76,0.2);
+  backdrop-filter:blur(8px);
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo img { height:40px; width:40px; }
+.nav-brand { font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:0.2em; color:var(--gold); }
+.nav-brand span { display:block; font-size:8px; font-family:'Montserrat',sans-serif; letter-spacing:0.3em; color:var(--blue-gray); font-weight:300; margin-top:2px; }
+.nav-back { font-size:10px; letter-spacing:0.25em; color:var(--blue-gray); text-decoration:none; border:1px solid rgba(201,168,76,0.3); padding:8px 18px; transition:all 0.3s; }
+.nav-back:hover { color:var(--gold); border-color:var(--gold); }
+
+/* HERO */
+.page-hero {
+  padding: 130px 5vw 70px;
+  text-align:center;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  border-bottom:1px solid rgba(201,168,76,0.12);
+}
+.page-hero .pre { font-size:10px; letter-spacing:0.5em; color:var(--gold); margin-bottom:16px; }
+.page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,5vw,52px); font-weight:300; color:var(--gold-light); letter-spacing:0.05em; margin-bottom:12px; }
+.page-hero .date { font-size:11px; color:var(--blue-gray); letter-spacing:0.2em; }
+
+/* TABS */
+.tabs-wrap { position:sticky; top:72px; z-index:50; background:rgba(14,22,41,0.97); border-bottom:1px solid rgba(201,168,76,0.15); backdrop-filter:blur(8px); }
+.tabs { display:flex; max-width:900px; margin:0 auto; padding:0 5vw; overflow-x:auto; }
+.tab { font-size:10px; letter-spacing:0.25em; color:var(--blue-gray); padding:18px 20px; white-space:nowrap; cursor:pointer; border-bottom:2px solid transparent; transition:all 0.3s; background:none; border-left:none; border-right:none; border-top:none; font-family:'Montserrat',sans-serif; }
+.tab:hover { color:var(--gold-light); }
+.tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+/* CONTENT */
+.content { max-width:860px; margin:0 auto; padding:60px 5vw 100px; }
+.section { display:none; }
+.section.active { display:block; }
+
+/* TYPOGRAPHY */
+h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(24px,3.5vw,36px); font-weight:300; color:var(--gold-light); letter-spacing:0.05em; margin-bottom:28px; padding-bottom:16px; border-bottom:1px solid rgba(201,168,76,0.2); }
+h3 { font-size:11px; letter-spacing:0.3em; color:var(--gold); margin:32px 0 14px; font-weight:600; }
+p { font-size:14px; font-weight:300; color:var(--blue-gray); line-height:1.9; margin-bottom:16px; }
+ul { list-style:none; margin-bottom:16px; display:flex; flex-direction:column; gap:8px; }
+ul li { font-size:14px; font-weight:300; color:var(--blue-gray); line-height:1.7; display:flex; gap:10px; }
+ul li::before { content:'◆'; color:var(--gold); font-size:8px; margin-top:5px; flex-shrink:0; opacity:0.7; }
+.info-box { background:rgba(201,168,76,0.06); border:1px solid rgba(201,168,76,0.2); padding:20px 24px; margin:24px 0; border-radius:2px; }
+.info-box p { margin-bottom:0; }
+strong { color:var(--gold-light); font-weight:500; }
+a { color:var(--gold); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.deco { display:flex; align-items:center; gap:12px; margin:40px 0; }
+.deco-bar { flex:1; height:1px; background:var(--gold); opacity:0.2; }
+.deco-dia { width:5px; height:5px; background:var(--gold); transform:rotate(45deg); opacity:0.6; }
+
+/* RGPD TABLE */
+table { width:100%; border-collapse:collapse; margin:20px 0; font-size:13px; }
+th { font-size:9px; letter-spacing:0.25em; color:var(--gold); padding:12px 16px; text-align:left; border-bottom:1px solid rgba(201,168,76,0.3); font-weight:500; }
+td { padding:12px 16px; color:var(--blue-gray); font-weight:300; border-bottom:1px solid rgba(201,168,76,0.08); vertical-align:top; line-height:1.7; }
+tr:hover td { background:rgba(201,168,76,0.03); }
+
+/* CONSENTEMENT CHECKBOX */
+.consent-box { background:var(--navy-mid); border:1px solid rgba(201,168,76,0.25); padding:24px; margin:28px 0; border-radius:2px; }
+.consent-box label { display:flex; gap:14px; align-items:flex-start; cursor:pointer; font-size:13px; font-weight:300; color:var(--text-light); line-height:1.7; }
+.consent-box input[type=checkbox] { margin-top:3px; accent-color:var(--gold); width:16px; height:16px; flex-shrink:0; cursor:pointer; }
+
+/* COOKIES BANNER */
+#cookie-banner {
+  position:fixed; bottom:0; left:0; right:0; z-index:9999;
+  background:#0b1120;
+  border-top:1px solid rgba(201,168,76,0.3);
+  padding:20px 5vw;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+  transform:translateY(100%);
+  transition:transform 0.4s ease;
+}
+#cookie-banner.visible { transform:translateY(0); }
+.cookie-text { font-size:12px; font-weight:300; color:var(--blue-gray); line-height:1.7; max-width:700px; }
+.cookie-text a { color:var(--gold); }
+.cookie-btns { display:flex; gap:10px; flex-shrink:0; }
+.btn-accept { font-size:10px; letter-spacing:0.25em; color:var(--navy); background:var(--gold); padding:12px 24px; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; transition:background 0.3s; }
+.btn-accept:hover { background:var(--gold-light); }
+.btn-refuse { font-size:10px; letter-spacing:0.25em; color:var(--gold); background:transparent; border:1px solid rgba(201,168,76,0.4); padding:12px 24px; cursor:pointer; font-family:'Montserrat',sans-serif; transition:all 0.3s; }
+.btn-refuse:hover { border-color:var(--gold); }
+.btn-customize { font-size:10px; letter-spacing:0.2em; color:var(--blue-gray); background:transparent; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; text-decoration:underline; padding:12px 0; }
+
+/* FOOTER */
+footer {
+  background:#080e1a; padding:32px 5vw;
+  border-top:1px solid rgba(201,168,76,0.12);
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+}
+.footer-brand { font-family:'Cormorant Garamond',serif; font-size:15px; letter-spacing:0.2em; color:var(--gold); }
+.footer-copy { font-size:10px; letter-spacing:0.12em; color:var(--blue-gray); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgdmlld0JveD0iMCAwIDY4MCA2OTAiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8dGl0bGUgc3R5bGU9ImZpbGw6cmdiKDAsIDAsIDApO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byI+TG9nbyBBcG9nw6llICZhbXA7IENvIFByZXN0aWdlIOKAlCB2ZXJzaW9uIGZ1c2lvbm7DqWU8L3RpdGxlPgogIDxkZXNjIHN0eWxlPSJmaWxsOnJnYigwLCAwLCAwKTtzdHJva2U6bm9uZTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iPkxvZ28gY2lyY3VsYWlyZSBibGV1IG1hcmluZSBhdmVjIG1vbm9ncmFtbWUgQSBkb3LDqSwgbm9tIGVuIGNhcGl0YWxlcyBlc3BhY8OpZXMgZXQgc291cy10aXRyZSBQcmVzdGlnZTwvZGVzYz4KCiAgPGRlZnM+CiAgICAKICA8L2RlZnM+CgogIDwhLS0gRm9uZCBub2lyIChzaW11bGVyIGZvbmQgbmV1dHJlKSAtLT4KICA8cmVjdCB3aWR0aD0iNjgwIiBoZWlnaHQ9IjY4MCIgZmlsbD0iIzBlMTYyOSIgc3R5bGU9ImZpbGw6cmdiKDE0LCAyMiwgNDEpO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIENlcmNsZSBleHTDqXJpZXVyIChib3JkdXJlIGZpbmUgb3IpIC0tPgogIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjM0MCIgcj0iMjk1IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE4NEMiIHN0cm9rZS13aWR0aD0iMS4yIiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjAxLCAxNjgsIDc2KTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjEuMnB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIENlcmNsZSByZW1wbGkgYmxldSBtYXJpbmUgLS0+CiAgPGNpcmNsZSBjeD0iMzQwIiBjeT0iMzQwIiByPSIyODIiIGZpbGw9IiMxYTI3NDQiIHN0eWxlPSJmaWxsOnJnYigyNiwgMzksIDY4KTtzdHJva2U6bm9uZTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjFweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iLz4KCiAgPCEtLSBEZXV4acOobWUgY2VyY2xlIGludMOpcmlldXIgZmluIG9yIC0tPgogIDxjaXJjbGUgY3g9IjM0MCIgY3k9IjM0MCIgcj0iMjY4IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE4NEMiIHN0cm9rZS13aWR0aD0iMC43IiBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpyZ2IoMjAxLCAxNjgsIDc2KTtjb2xvcjpyZ2IoMCwgMCwgMCk7c3Ryb2tlLXdpZHRoOjAuN3B4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTomcXVvdDtBbnRocm9waWMgU2FucyZxdW90OywgLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAmcXVvdDtTZWdvZSBVSSZxdW90Oywgc2Fucy1zZXJpZjtmb250LXNpemU6MTZweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6c3RhcnQ7ZG9taW5hbnQtYmFzZWxpbmU6YXV0byIvPgoKICA8IS0tIE1vbm9ncmFtbWUgQSAtLT4KICA8dGV4dCB4PSIzNDAiIHk9IjMzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9ImF1dG8iIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMjEwIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjQzlBODRDIiBsZXR0ZXItc3BhY2luZz0iLTQiIHN0eWxlPSJmaWxsOnJnYigyMDEsIDE2OCwgNzYpO3N0cm9rZTpub25lO2NvbG9yOnJnYigwLCAwLCAwKTtzdHJva2Utd2lkdGg6MXB4O3N0cm9rZS1saW5lY2FwOmJ1dHQ7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO29wYWNpdHk6MTtmb250LWZhbWlseTpHZW9yZ2lhLCAmcXVvdDtUaW1lcyBOZXcgUm9tYW4mcXVvdDssIHNlcmlmO2ZvbnQtc2l6ZToyMTBweDtmb250LXdlaWdodDo0MDA7dGV4dC1hbmNob3I6bWlkZGxlO2RvbWluYW50LWJhc2VsaW5lOmF1dG8iPkE8L3RleHQ+CgogIDwhLS0gTGlnbmUgaG9yaXpvbnRhbGUgc8OpcGFyYXRyaWNlIC0tPgogIDxsaW5lIHgxPSIyMjAiIHkxPSIzODUiIHgyPSI0NjAiIHkyPSIzODUiIHN0cm9rZT0iI0M5QTg0QyIgc3Ryb2tlLXdpZHRoPSIwLjgiIHN0eWxlPSJmaWxsOnJnYigwLCAwLCAwKTtzdHJva2U6cmdiKDIwMSwgMTY4LCA3Nik7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDowLjhweDtzdHJva2UtbGluZWNhcDpidXR0O3N0cm9rZS1saW5lam9pbjptaXRlcjtvcGFjaXR5OjE7Zm9udC1mYW1pbHk6JnF1b3Q7QW50aHJvcGljIFNhbnMmcXVvdDssIC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJnF1b3Q7U2Vnb2UgVUkmcXVvdDssIHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOnN0YXJ0O2RvbWluYW50LWJhc2VsaW5lOmF1dG8iLz4KCiAgPCEtLSBOb20gZGUgbGEgbWFycXVlIC0tPgogIDx0ZXh0IHg9IjM0MCIgeT0iNDI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjQzlBODRDIiBsZXR0ZXItc3BhY2luZz0iOCIgc3R5bGU9ImZpbGw6cmdiKDIwMSwgMTY4LCA3Nik7c3Ryb2tlOm5vbmU7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7b3BhY2l0eToxO2ZvbnQtZmFtaWx5Okdlb3JnaWEsICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90Oywgc2VyaWY7Zm9udC1zaXplOjIycHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOm1pZGRsZTtkb21pbmFudC1iYXNlbGluZTphdXRvIj5BUE9Hw4lFICZhbXA7IENPPC90ZXh0PgoKICA8IS0tIFNvdXMtdGl0cmUgUHJlc3RpZ2UgLS0+CiAgPHRleHQgeD0iMzQwIiB5PSI0NjIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI0MDAiIGZpbGw9IiM4YTlhYjgiIGxldHRlci1zcGFjaW5nPSI3IiBzdHlsZT0iZmlsbDpyZ2IoMTM4LCAxNTQsIDE4NCk7c3Ryb2tlOm5vbmU7Y29sb3I6cmdiKDAsIDAsIDApO3N0cm9rZS13aWR0aDoxcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7b3BhY2l0eToxO2ZvbnQtZmFtaWx5Okdlb3JnaWEsICZxdW90O1RpbWVzIE5ldyBSb21hbiZxdW90Oywgc2VyaWY7Zm9udC1zaXplOjExcHg7Zm9udC13ZWlnaHQ6NDAwO3RleHQtYW5jaG9yOm1pZGRsZTtkb21pbmFudC1iYXNlbGluZTphdXRvIj5QUkVTVElHRTwvdGV4dD4KCjwvc3ZnPg==" alt="Apogée & Co"/>
+    <div class="nav-brand">APOGÉE & CO<span>PRESTIGE</span></div>
+  </a>
+  <a href="index.html" class="nav-back">← RETOUR AU SITE</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="pre">TRANSPARENCE & CONFORMITÉ</div>
+  <h1>Mentions légales &<br>Politique de confidentialité</h1>
+  <p class="date">Dernière mise à jour : avril 2025</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('mentions')">MENTIONS LÉGALES</button>
+    <button class="tab" onclick="showTab('confidentialite')">POLITIQUE DE CONFIDENTIALITÉ</button>
+    <button class="tab" onclick="showTab('cookies')">GESTION DES COOKIES</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- ── MENTIONS LÉGALES ── -->
+  <div class="section active" id="mentions">
+    <h2>Mentions légales</h2>
+    <p>Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'Économie Numérique (LCEN), les informations légales relatives à l'éditeur du site apogeeco.fr sont présentées ci-dessous.</p>
+
+    <h3>ÉDITEUR DU SITE</h3>
+    <div class="info-box">
+      <p><strong>Raison sociale :</strong> Apogée & Co</p>
+      <p><strong>Numéro SIRET :</strong> 980 327 670 00017</p>
+      <p><strong>Adresse du siège social :</strong> 16 Rue Émile Baudot, 91120 Palaiseau, France</p>
+      <p><strong>Email de contact :</strong> <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a></p>
+      <p><strong>Téléphone :</strong> 06 36 42 65 56</p>
+    </div>
+
+    <h3>DIRECTEUR DE LA PUBLICATION</h3>
+    <p>Le directeur de la publication est le représentant légal d'Apogée & Co, joignable à l'adresse email : <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a></p>
+
+    <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
+
+    <h3>HÉBERGEUR DU SITE</h3>
+    <div class="info-box">
+      <p><strong>Hébergeur :</strong> GitHub, Inc.</p>
+      <p><strong>Service :</strong> GitHub Pages</p>
+      <p><strong>Adresse :</strong> 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</p>
+      <p><strong>Site web :</strong> <a href="https://github.com" target="_blank">github.com</a></p>
+    </div>
+
+    <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
+
+    <h3>PROPRIÉTÉ INTELLECTUELLE</h3>
+    <p>L'ensemble du contenu de ce site (textes, images, logos, graphismes) est la propriété exclusive d'Apogée & Co et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle. Toute reproduction, distribution, modification ou utilisation sans autorisation préalable écrite est strictement interdite.</p>
+
+    <h3>RESPONSABILITÉ</h3>
+    <p>Apogée & Co s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site. Toutefois, Apogée & Co ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition sur ce site et décline toute responsabilité pour toute imprécision, inexactitude ou omission.</p>
+
+    <h3>DROIT APPLICABLE</h3>
+    <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+  </div>
+
+  <!-- ── POLITIQUE DE CONFIDENTIALITÉ ── -->
+  <div class="section" id="confidentialite">
+    <h2>Politique de confidentialité</h2>
+    <p>Apogée & Co accorde une importance primordiale à la protection de vos données personnelles. Cette politique de confidentialité vous informe sur la manière dont nous collectons, utilisons et protégeons vos données, conformément au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> du 27 avril 2016 et à la loi Informatique et Libertés.</p>
+
+    <h3>RESPONSABLE DU TRAITEMENT</h3>
+    <div class="info-box">
+      <p><strong>Apogée & Co</strong> — SIRET 980 327 670 00017<br>
+      16 Rue Émile Baudot, 91120 Palaiseau<br>
+      <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a></p>
+    </div>
+
+    <h3>DONNÉES COLLECTÉES ET FINALITÉS</h3>
+    <p>Les données personnelles collectées via le formulaire de contact sont les suivantes :</p>
+    <table>
+      <tr><th>DONNÉE</th><th>FINALITÉ</th><th>BASE LÉGALE</th><th>DURÉE DE CONSERVATION</th></tr>
+      <tr><td><strong>Nom</strong></td><td>Identifier l'expéditeur et personnaliser la réponse</td><td>Consentement (art. 6.1.a RGPD)</td><td>3 ans après le dernier contact</td></tr>
+      <tr><td><strong>Email</strong></td><td>Répondre à votre demande</td><td>Consentement (art. 6.1.a RGPD)</td><td>3 ans après le dernier contact</td></tr>
+      <tr><td><strong>Téléphone</strong></td><td>Vous recontacter si nécessaire</td><td>Consentement (art. 6.1.a RGPD)</td><td>3 ans après le dernier contact</td></tr>
+      <tr><td><strong>Message</strong></td><td>Traiter votre demande de service</td><td>Consentement (art. 6.1.a RGPD)</td><td>3 ans après le dernier contact</td></tr>
+    </table>
+
+    <p>Vos données ne sont utilisées qu'aux fins pour lesquelles elles ont été collectées. Elles ne sont ni vendues, ni louées, ni transmises à des tiers à des fins commerciales.</p>
+
+    <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
+
+    <h3>VOS DROITS (ART. 15 À 22 DU RGPD)</h3>
+    <p>Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> — obtenir une copie de vos données personnelles que nous détenons</li>
+      <li><strong>Droit de rectification</strong> — corriger des données inexactes ou incomplètes</li>
+      <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données ("droit à l'oubli")</li>
+      <li><strong>Droit à la limitation</strong> — restreindre le traitement de vos données dans certains cas</li>
+      <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format structuré et lisible</li>
+      <li><strong>Droit d'opposition</strong> — vous opposer au traitement de vos données</li>
+      <li><strong>Droit de retrait du consentement</strong> — retirer votre consentement à tout moment</li>
+    </ul>
+
+    <p>Pour exercer ces droits, contactez-nous à : <a href="mailto:contact.apogeeco@gmail.com">contact.apogeeco@gmail.com</a><br>
+    Nous nous engageons à répondre dans un délai d'<strong>un mois</strong> à compter de la réception de votre demande.</p>
+
+    <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+
+    <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
+
+    <h3>SOUS-TRAITANTS</h3>
+    <p>Nous faisons appel aux sous-traitants suivants pour le traitement de vos données :</p>
+    <ul>
+      <li><strong>Formspree, Inc.</strong> — traitement du formulaire de contact (États-Unis — certifié conforme RGPD)</li>
+      <li><strong>GitHub, Inc.</strong> — hébergement du site (États-Unis — certifié conforme RGPD)</li>
+    </ul>
+    <p>Ces prestataires agissent en tant que sous-traitants et s'engagent à respecter la confidentialité de vos données.</p>
+
+    <h3>CONSENTEMENT</h3>
+    <p>En soumettant le formulaire de contact, vous acceptez que vos données soient traitées conformément à cette politique. Vous pouvez retirer votre consentement à tout moment en nous contactant par email.</p>
+
+    <div class="consent-box">
+      <label>
+        <input type="checkbox" id="rgpd-consent" />
+        J'ai lu et j'accepte la politique de confidentialité d'Apogée & Co. Je consens au traitement de mes données personnelles aux fins décrites ci-dessus, conformément au RGPD.
+      </label>
+    </div>
+
+    <h3>SÉCURITÉ</h3>
+    <p>Apogée & Co met en œuvre toutes les mesures techniques et organisationnelles appropriées pour assurer la sécurité de vos données personnelles et les protéger contre toute perte, destruction accidentelle, altération ou divulgation non autorisée.</p>
+  </div>
+
+  <!-- ── COOKIES ── -->
+  <div class="section" id="cookies">
+    <h2>Gestion des cookies</h2>
+    <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, smartphone) lors de votre navigation sur notre site. Conformément à la directive européenne ePrivacy et aux recommandations de la CNIL, nous vous informons de l'utilisation des cookies sur ce site.</p>
+
+    <h3>COOKIES UTILISÉS SUR CE SITE</h3>
+    <table>
+      <tr><th>NOM</th><th>TYPE</th><th>FINALITÉ</th><th>DURÉE</th></tr>
+      <tr><td><strong>cookie_consent</strong></td><td>Fonctionnel (essentiel)</td><td>Mémorise votre choix de consentement aux cookies</td><td>12 mois</td></tr>
+      <tr><td><strong>Google Fonts</strong></td><td>Technique (essentiel)</td><td>Chargement des polices typographiques du site</td><td>Session</td></tr>
+    </table>
+
+    <p>Ce site n'utilise <strong>aucun cookie de traçage ou de publicité</strong>. Aucune donnée de navigation n'est transmise à des tiers à des fins commerciales.</p>
+
+    <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
+
+    <h3>VOS CHOIX</h3>
+    <ul>
+      <li><strong>Accepter</strong> — vous autorisez le dépôt de tous les cookies décrits ci-dessus</li>
+      <li><strong>Refuser</strong> — seuls les cookies strictement nécessaires au fonctionnement du site sont déposés</li>
+      <li><strong>Modifier</strong> — vous pouvez modifier votre choix à tout moment ci-dessous</li>
+    </ul>
+
+    <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;">
+      <button onclick="acceptCookies()" style="font-size:10px;letter-spacing:0.25em;color:#0e1629;background:#C9A84C;padding:14px 28px;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;">TOUT ACCEPTER</button>
+      <button onclick="refuseCookies()" style="font-size:10px;letter-spacing:0.25em;color:#C9A84C;background:transparent;border:1px solid rgba(201,168,76,0.4);padding:14px 28px;cursor:pointer;font-family:'Montserrat',sans-serif;">TOUT REFUSER</button>
+    </div>
+
+    <p id="cookie-status" style="margin-top:20px;font-size:12px;color:#8a9ab8;"></p>
+
+    <div class="deco"><div class="deco-bar"></div><div class="deco-dia"></div><div class="deco-bar"></div></div>
+
+    <h3>COMMENT DÉSACTIVER LES COOKIES VIA VOTRE NAVIGATEUR</h3>
+    <p>Vous pouvez également configurer votre navigateur pour refuser les cookies :</p>
+    <ul>
+      <li><strong>Chrome :</strong> Paramètres → Confidentialité et sécurité → Cookies</li>
+      <li><strong>Firefox :</strong> Options → Vie privée et sécurité → Cookies</li>
+      <li><strong>Safari :</strong> Préférences → Confidentialité → Cookies</li>
+      <li><strong>Edge :</strong> Paramètres → Confidentialité, recherche et services → Cookies</li>
+    </ul>
+    <p>Notez que la désactivation des cookies peut affecter le fonctionnement de certaines fonctionnalités du site.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">APOGÉE & CO</div>
+  <div class="footer-copy">© 2025 Apogée & Co — SIRET 980 327 670 00017</div>
+</footer>
+
+<!-- BANDEAU COOKIES -->
+<div id="cookie-banner">
+  <div class="cookie-text">
+    Nous utilisons des cookies essentiels au fonctionnement du site. En cliquant sur "Accepter", vous consentez à leur utilisation. Pour en savoir plus, consultez notre <a href="#" onclick="showTab('cookies');scrollToContent();">politique de cookies</a>.
+  </div>
+  <div class="cookie-btns">
+    <button class="btn-customize" onclick="showTab('cookies');scrollToContent();">Personnaliser</button>
+    <button class="btn-refuse" onclick="refuseCookies()">Refuser</button>
+    <button class="btn-accept" onclick="acceptCookies()">Accepter</button>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx = ['mentions','confidentialite','cookies'].indexOf(id);
+  document.querySelectorAll('.tab')[idx].classList.add('active');
+}
+
+function scrollToContent() {
+  document.querySelector('.content').scrollIntoView({behavior:'smooth'});
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('visible');
+  document.getElementById('cookie-status').textContent = '✓ Votre choix a été enregistré : cookies acceptés.';
+}
+
+function refuseCookies() {
+  localStorage.setItem('cookie_consent','refused');
+  document.getElementById('cookie-banner').classList.remove('visible');
+  document.getElementById('cookie-status').textContent = '✓ Votre choix a été enregistré : cookies non essentiels refusés.';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = localStorage.getItem('cookie_consent');
+  if (!consent) {
+    setTimeout(() => document.getElementById('cookie-banner').classList.add('visible'), 800);
+  } else {
+    const s = document.getElementById('cookie-status');
+    if(s) s.textContent = consent === 'accepted'
+      ? '✓ Votre choix actuel : cookies acceptés.'
+      : '✓ Votre choix actuel : cookies refusés.';
+  }
+});
+</script>
+</body>
+</html>
